@@ -1,42 +1,6 @@
+imports:
+- path: mig-3-template.py
+
 resources:
-
-- name: firewall-rule
-  type: compute.v1.firewall
-  properties:
-    network: global/networks/default
-    allowed:
-    - IPProtocol: tcp
-      ports:
-        - 80
-        - 443
-    sourceRanges: ["0.0.0.0/0"]
-    targetTags:
-      - web-traffic
-
-- name: deployment-manager-vm-test
-  type: compute.v1.instance
-  properties:
-    zone: europe-west2-c
-    machineType: zones/europe-west2-c/machineTypes/n1-standard-1
-    disks:
-    - deviceName: boot
-      type: PERSISTENT
-      boot: true
-      autoDelete: true
-      initializeParams:
-        sourceImage: projects/centos-cloud/global/images/centos-7-v20190326
-    networkInterfaces:
-    - network: global/networks/default
-      accessConfigs:
-      - name: External NAT
-        type: ONE_TO_ONE_NAT
-    metadata:
-      items:
-        - key: startup-script-url
-          value: gs://munir-startup/startup.bash
-    tags:
-      items:
-        - web-traffic
-    serviceAccounts:
-      - scopes:
-        - https://www.googleapis.com/auth/cloud-platform
+- name: instance-test
+  type: mig-3-template.py
