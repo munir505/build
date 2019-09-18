@@ -1,0 +1,6 @@
+imports:
+- path: jinja/instance-template.jinja
+
+resources:
+- type: jinja/instance-template.jinja
+  name: build-template

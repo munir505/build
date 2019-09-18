@@ -1,6 +1,35 @@
 imports:
-- path: mig-3-template.py
+- path: jinja/mig.jinja
+- path: jinja/bucket.jinja
+- path: jinja/sql.jinja
 
 resources:
-- name: instance-test
-  type: mig-3-template.py
+- type: jinja/mig.jinja
+  name: ifa-application
+
+- type: jinja/mig.jinja
+  name: client-portal
+
+- type: jinja/mig.jinja
+  name: marketing-application
+
+- type: jinja/bucket.jinja
+  name: ifa-assets-bu
+  properties:
+    storageClass: MULTI_REGIONAL
+
+- type: jinja/bucket.jinja
+  name: marketing-assets-bu
+  properties:
+    storageClass: MULTI_REGIONAL
+
+- type: jinja/bucket.jinja
+  name: backups-bu
+  properties:
+    storageClass: NEARLINE
+
+- type: jinja/sql.jinja
+  name: usay-sql-f-one
+
+- type: jinja/sql.jinja
+  name: usay-sql-f-two

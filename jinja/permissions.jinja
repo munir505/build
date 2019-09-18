@@ -1,0 +1,12 @@
+resources:
+- type: compute.v1.firewall
+  name: {{ name }}
+  properties:
+    network: projects/{{ env.project }}/global/networks/project1-production
+    allowed:
+    - IPProtocol: tcp
+      ports:
+      - 80
+    sourceRanges: ["0.0.0.0/0"]
+    targetTags:
+      - usay-allow-http

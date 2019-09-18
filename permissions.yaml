@@ -1,0 +1,6 @@
+imports:
+- path: jinja/permissions.jinja
+
+resources:
+- type: jinja/permissions.jinja
+  name: usay-allow-http

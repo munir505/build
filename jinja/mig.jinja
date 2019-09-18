@@ -1,0 +1,12 @@
+resources:
+- type: compute.v1.regionInstanceGroupManager
+  name: {{ name }}
+  properties:
+    instanceTemplate: projects/ops-munir-kakar/global/instanceTemplates/build-template
+    region: europe-west2
+    targetSize: 1
+    namedPorts:
+    - name: http
+      port: 80
+    autoHealingPolicies:
+    - healthCheck: projects/ops-munir-kakar/global/healthChecks/health-check

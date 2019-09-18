@@ -1,0 +1,17 @@
+resources:
+- type: sqladmin.v1beta4.instance
+  name: {{ name }}
+  properties:
+    region: europe-west2
+    settings:
+      tier: db-n1-standard-2
+      availabilityType: ZONAL
+      dataDiskSizeGb: 100
+      dataDiskType: PD_SSD
+      backupConfiguration:
+        enabled: true
+        startTime: 01:00
+      maintenanceWindow:
+        day: 6
+        hour: 2
+    databaseVersion: MYSQL_5_6

@@ -1,0 +1,23 @@
+resources:
+- type: gcp-types/compute-v1:instanceTemplates
+  name: {{ name }}
+  properties:
+    project: ops-munir-kakar
+    properties:
+      machineType: f1-micro
+      disks:
+      - deviceName: boot
+        boot: true
+        type: PERSISTENT
+        autoDelete: true
+        mode: READ_WRITE
+        initializeParams:
+          diskType: pd-ssd
+          diskSizeGb: '50'
+          sourceImage: projects/centos-cloud/global/images/centos-7-v20190619
+      networkInterfaces:
+      - network: projects/cloud-admin-vpc/global/networks/project1-production
+        subnetwork: projects/cloud-admin-vpc/regions/europe-west2/subnetworks/subnet1
+      tags:
+        items:
+        - usay-allow-http
