@@ -1,0 +1,12 @@
+imports:
+- path: mig.jinja2
+
+resources:
+- name: instance-test
+  type: mig.jinja2
+
+- name: instance-test2
+  type: mig.jinja2
+
+- name: instance-test3
+  type: mig.jinja2
